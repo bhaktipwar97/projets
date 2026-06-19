@@ -79,9 +79,9 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-// ================= HOME ROUTE =================
+// ================= HOME ROUTE (FIXED) =================
 app.get("/", (req, res) => {
-  res.send("🚀 Backend is Live and Working");
+  res.render("listings/index.ejs");
 });
 
 // ================= ERROR HANDLING =================
