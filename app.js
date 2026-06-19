@@ -21,7 +21,9 @@ const listingRouter = require("./route/listing.js");
 const reviewRouter = require("./route/review.js");
 const userRouter = require("./route/user.js");
 
+
 // ================= DB =================
+
 const dbUrl = process.env.ATLASDB_URL;
 
 mongoose
@@ -33,24 +35,33 @@ mongoose
     console.log(err);
   });
 
+
 // ================= VIEW ENGINE =================
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsMate);
 
+
 // ================= MIDDLEWARE =================
+
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
+
 // ================= SESSION =================
+
 const sessionOptions = {
   secret: "mysupersecretcode",
   resave: false,
   saveUninitialized: true,
+
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+
     maxAge: 7 * 24 * 60 * 60 * 1000,
+
     httpOnly: true,
   },
 };
@@ -58,39 +69,61 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 app.use(flash());
 
+
 // ================= PASSPORT =================
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
+
 passport.serializeUser(User.serializeUser());
+
 passport.deserializeUser(User.deserializeUser());
 
+
 // ================= LOCALS =================
+
 app.use((req, res, next) => {
   res.locals.error = req.flash("error");
+
   res.locals.success = req.flash("success");
+
   res.locals.currUser = req.user;
+
   next();
 });
 
+
 // ================= ROUTES =================
+
 app.use("/listings", listingRouter);
+
 app.use("/listings/:id/reviews", reviewRouter);
+
 app.use("/", userRouter);
 
-// ================= HOME ROUTE (FIXED) =================
+
+// ================= HOME ROUTE =================
+
 app.get("/", (req, res) => {
-  res.render("listings/index.ejs");
+  res.redirect("/listings");
 });
 
+
 // ================= ERROR HANDLING =================
+
 app.use((err, req, res, next) => {
-  let { statusCode = 500, message = "something went wrong" } = err;
+  console.log(err);
+
+  let { statusCode = 500, message = "Something went wrong" } = err;
+
   res.status(statusCode).render("error.ejs", { message });
 });
 
+
 // ================= SERVER =================
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
