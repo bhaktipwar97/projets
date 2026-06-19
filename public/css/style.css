@@ -1,0 +1,180 @@
+/* body{
+    background-color: bisque;
+} */
+
+body{
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+ .container{ 
+ flex: 1; 
+
+
+} 
+
+/* navbar */
+.navbar{
+
+    height: 5rem;/* he mule header hi hight mothi jhali ahe mhje ayat kurti ch jo icon ahe tith spce*/
+   background-color: white;/*  sticky toplihyc nantr ye use hot he myle header cha color white jhla ahe mhde ji patti navti k ti white jhli*/
+
+}
+
+.fa-compass{  /*     hya mule tya icon cha color red jhla ahe ani  icnon chi size pn vadli ahe font size mule ha clss tya icon chi copy kelile link mhdun  ghetla ahee navbar.ejs mhde ahe*/
+color: #fe424d;
+font-size: 2rem;
+
+}
+.nav-link{    
+color: #222222 !important;/* ya mule  je icon smor astt header tychi word ch color black jhla ahe */ 
+ 
+
+}
+
+/* Footer style */
+
+.f-info-links a{
+    text-decoration: none;/* terms or privancy ka color blakc ho jayega*/
+    color: #222222;
+
+}
+
+ .f-info-links a:hover{
+    text-decoration: underline;/* terms or privancy ke niche hover karte hi underline aajaye gi*/
+
+
+}
+
+ .f-info-links,
+.f-info-socials,
+.f-info-brand{
+
+    width: 100%;/* ak side  he pahile akside la jatil mg tet-align lihlvr he mhde yetil khup im*/
+ display: flex;
+ align-items: center;
+   justify-content: center; 
+} 
+
+
+.f-info-socials i{
+    font-size: 1.2rem;/*icon chi size vadli ahe*/
+    margin-right: 1rem;/*icon ke bich mai space aajayega*/
+}
+
+ /* .f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    width: 100%;
+     display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+   align-items:space-evenly;
+}  */
+
+
+footer{
+    width: 100%;
+}
+
+.f-info{
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background-color: #ebebeb;
+    height: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* cards */
+.listing-card{
+    border: none !important;/* card border  hat jayegi*/
+    margin-bottom: 2rem;/*card ke bich mai space aajayge */
+}
+
+.card-img-top{
+    border-radius: 1rem  !important;/*card ke corner mai round hoga */
+     width: 100%;/*card ki image ki width 100%ho jaegi */
+     object-fit: cover !important;/*image ki hight or width dono cover ho jayegi*/
+}
+
+.card-body{
+    padding: 0 !important;
+}
+.card-text  p{
+    
+    font-weight: 400 ;
+}
+
+.listing-link{
+    text-decoration: none;/* isase price or title ke niche line hat jayegi*/
+}
+
+
+/* card Effect */
+ .card-img-overlay{
+ opacity: 0;
+
+ }
+
+  .card-img-overlay:hover{  /* image pr hoer karti hi uska background color white ho jayega*/
+ opacity: 0.2;
+ background-color: white;
+
+ }
+
+ /* new form crete kela he tya sathi he hai addd ch form he ha */
+ .add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+ }
+
+ /* edit page */
+  .edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+ }
+
+
+ /* show page mhtl image pr click karte hi imgki puri info ayegi */
+
+ .show-img{
+
+    height: 30vh;
+ }
+
+ /* delte andedit button */
+ .btns{
+display: flex; /* ubhe button adve hotil aka line mhde*/
+
+ }
+
+ .show-card{
+    padding: 0;
+    padding-right: 0;
+ }
+.edit-img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* map */
+#map{
+height: 400px;
+width: 80vh;
+border-radius: 1rem;
+
+
+} 
+   
+    
