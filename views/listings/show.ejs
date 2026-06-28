@@ -34,8 +34,8 @@ console.log(listing);
 <br />
 <% if(currUser && listing.owner && listing.owner._id.equals(currUser._id)){%>
 <div class="btns">
-<a href="/listings/<%= listing._id %>/edit" class="btn btn-dark   col-1  offset-3  edit-btn">Edit</a><!--update path-->
-<form  method="POST" action="/listings/<%=listing._id%>?_method=DELETE"><!-- DELETE KARNE KELIY USE KARATE HAI-->
+<a href="/listings/<%= listing._id %>/edit" class="btn btn-dark   offset-3 edit-btn">Edit</a><!--update path-->
+<form  method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
 <button class="btn btn-dark   offset-5">Delete</button><!-- 2-->
 </form>    
 </div>
@@ -97,21 +97,24 @@ console.log(listing);
             <div class="row">
             <p><b>All reviews</b></p>
             <% for(review of listing.reviews) {%>
-            <div class="card col-5 ms-3 mb-3">
-                <div class="card-body">
-                     <h5 class="card-title">@<%= review.author.username%></h5>
-                         <p class="starability-result card-text" data-rating="<%=review.rating %>">
-                          </p>
-                       <p class="card-text"><%= review.comment%></p>
-                    
-                       <!-- DELTE ROUTEE REVIEWS -->
-                       <form class="mb-3" method="POST" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
-                         <button class="btn btn-sm btn-dark">Delete</button>
+         <div class="col-12 col-md-6 mb-3">
+    <div class="card h-100 review-card">
+        <div class="card-body">
+            <h5 class="card-title">@<%= review.author.username %></h5>
 
-                       </form>
-            
-            </div>
-            </div>
+            <p class="starability-result card-text"
+               data-rating="<%= review.rating %>">
+            </p>
+
+            <p class="card-text"><%= review.comment %></p>
+
+            <form method="POST"
+                  action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                <button class="btn btn-sm btn-dark">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
             <%}%>
             </div>
             <%}%>

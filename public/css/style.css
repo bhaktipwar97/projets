@@ -126,13 +126,12 @@ footer{
 
  }
 
-  .card-img-overlay:hover{  /* image pr hoer karti hi uska background color white ho jayega*/
+  .card-img-overlay:hover{  
  opacity: 0.2;
  background-color: white;
 
  }
 
- /* new form crete kela he tya sathi he hai addd ch form he ha */
  .add-btn{
     background-color: #fe424d !important;
     border: none !important;
@@ -145,16 +144,14 @@ footer{
  }
 
 
- /* show page mhtl image pr click karte hi imgki puri info ayegi */
 
  .show-img{
 
     height: 30vh;
  }
 
- /* delte andedit button */
  .btns{
-display: flex; /* ubhe button adve hotil aka line mhde*/
+display: flex;
 
  }
 
